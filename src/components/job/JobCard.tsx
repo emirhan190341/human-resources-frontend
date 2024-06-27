@@ -13,7 +13,6 @@ type JobCardProps = {
   description: string;
 };
 
-// Define OutlinedCard component that accepts props
 const JobCard = ({
   id,
   title,
