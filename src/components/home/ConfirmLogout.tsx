@@ -15,7 +15,7 @@ const ConfirmLogout = ({ onClose, onConfirm }: Props) => {
       <Box sx={{ mt: 4, display: "flex", justifyContent: "center" }}>
         <Button
           style={{
-            background: "linear-gradient(to right bottom, #00AAFF, #00FFF3)",
+            background: "linear-gradient(to right bottom, #00FFC5, #18705C)",
           }}
           variant="contained"
           onClick={onClose}

@@ -5,8 +5,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutJobSeeker } from "../../redux/JobSeekerSlice";
-import ConfirmLogout from "./ConfirmLogout";
 import MUIModal from "../MUIModal";
+import ConfirmLogout from "./ConfirmLogout";
 
 const Header = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -26,6 +26,30 @@ const Header = () => {
   const handleConfirmLogout = () => {
     setModalOpen(false);
     mutate();
+  };
+
+  type StyleProps = {
+    position: string;
+    top: string;
+    left: string;
+    transform: string;
+    width: number;
+    background: string;
+    borderRadius: string;
+    boxShadow: number;
+    p: number;
+  };
+
+  const style: StyleProps = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    background: "linear-gradient(to bottom, #1e293b, #0ea5e9)",
+    borderRadius: "20px",
+    boxShadow: 24,
+    p: 4,
   };
 
   const { mutate } = useMutation({
@@ -82,7 +106,11 @@ const Header = () => {
             )}
 
             <div className="absolute ">
-              <MUIModal open={modalOpen} handleClose={handleCloseModal}>
+              <MUIModal
+                style={style}
+                open={modalOpen}
+                handleClose={handleCloseModal}
+              >
                 <ConfirmLogout
                   onClose={handleCloseModal}
                   onConfirm={handleConfirmLogout}

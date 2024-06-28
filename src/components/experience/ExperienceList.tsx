@@ -5,6 +5,9 @@ import { GoPencil } from "react-icons/go";
 import { LuPlus } from "react-icons/lu";
 import { useSelector } from "react-redux";
 import ExperienceCard from "./ExperienceCard";
+import { useState } from "react";
+import ExperienceForm from "./ExperienceForm";
+import RotatedText from "../decorators/RotatedText";
 
 type ExperienceListProps = {
   id: number;
@@ -18,6 +21,7 @@ type ExperienceListProps = {
 };
 
 const ExperienceList = () => {
+  const [open, setOpen] = useState(false);
   const jobSeeker = useSelector(
     (state: RootState) => state.jobSeeker.jobSeeker
   );
@@ -45,14 +49,26 @@ const ExperienceList = () => {
   }
 
   return (
-    <div className="border rounded-lg shadow-xl p-4 mt-3">
+    <div className="border border-b-0 border-slate-400 rounded-tr-xl rounded-bl-xl shadow-xl p-4 mt-3">
       <div className="flex text-xl justify-between items-center">
-        <span className="font-bold">Experience</span>
+        <span className="font-bold">
+          <RotatedText>Experience</RotatedText>
+        </span>
         <div className="flex items-center gap-2">
-          <LuPlus />
-          <GoPencil />
+          <button onClick={() => setOpen(true)}>
+            <LuPlus />
+          </button>
         </div>
       </div>
+
+      {open && (
+        <ExperienceForm
+          open={open}
+          handleClose={() => {
+            setOpen(false);
+          }}
+        />
+      )}
 
       {data?.response.map((experience: ExperienceListProps) => (
         <ExperienceCard

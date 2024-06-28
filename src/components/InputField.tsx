@@ -22,7 +22,7 @@ const InputField: React.FC<InputFieldProps> = ({
   } = useFormContext();
 
   return (
-    <div className="flex items-center w-full flex-wrap gap-1">
+    <div className="flex items-center w-full flex-wrap gap-1 ">
       <div className="w-full font-bold ">{placeholder}:</div>
       <Controller
         rules={{ required: true, ...rules }}
@@ -30,7 +30,7 @@ const InputField: React.FC<InputFieldProps> = ({
         control={control}
         render={({ field }) => (
           <input
-            className="border p-1 m-1 w-full rounded-xl shadow-lg  bg-gradient-to-tr from- focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="border p-1 my-1 w-full rounded-xl shadow-lg  bg-gradient-to-tr from- focus:outline-none focus:ring-2 focus:ring-blue-600"
             {...field}
             placeholder={placeholder}
             type={type}

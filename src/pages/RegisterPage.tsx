@@ -78,8 +78,7 @@ const RegisterPage = () => {
           </span>
         </h2>
         <p className="fg.muted text-center mt-2">
-          Already have an account?{" "}
-          <TransitionText>Sign in</TransitionText>
+          Already have an account? <TransitionText>Sign in</TransitionText>
         </p>
       </div>
 

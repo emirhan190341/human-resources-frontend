@@ -11,22 +11,7 @@ import ProfilePage from "./pages/ProfilePage";
 import RegisterPage from "./pages/RegisterPage";
 import JobApplyPage from "./pages/JobApplyPage";
 
-type RootState = {
-  jobSeeker: {
-    jobSeeker: {
-      id: number;
-      email: string;
-      firstName: string;
-      lastName: string;
-      password: string;
-      role: string;
-      accountVerified: boolean;
-      active: boolean;
-      createdAt: string;
-      updatedAt: string;
-    } | null;
-  };
-};
+
 
 function App() {
   const jobSeeker = useSelector(

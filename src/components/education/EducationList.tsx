@@ -1,11 +1,10 @@
-import { GoPencil } from "react-icons/go";
 import { LuPlus } from "react-icons/lu";
 
 import { RootState } from "@reduxjs/toolkit/query";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import MUIModal from "../MUIModal";
+import RotatedText from "../decorators/RotatedText";
 import EducationCard from "./EducationCard";
 import EducationForm from "./EducationForm";
 
@@ -52,16 +51,16 @@ const EducationList = () => {
   }
 
   return (
-    <div className="border rounded-lg shadow-xl p-4 mt-3">
+    <div className="border border-r-0 border-slate-400 rounded-tl-xl rounded-bl-xl rounded-br-xl shadow-xl p-4 mt-3">
       <div className="flex text-xl justify-between items-center">
-        <span className="font-bold">Education</span>
+        <span className="font-bold">
+          <RotatedText>Education</RotatedText>
+        </span>
         <div className="flex items-center gap-2">
           <button onClick={() => setOpen(true)}>
             <LuPlus />
           </button>
-          <button>
-            <GoPencil />
-          </button>
+          {/*TODO: Implement edit functionality */}
         </div>
       </div>
 

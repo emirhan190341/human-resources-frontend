@@ -1,6 +1,9 @@
+import RotatedText from "@/components/decorators/RotatedText";
+import ProfileForm from "@/components/profile/ProfileForm";
 import { Chip, Stack } from "@mui/material";
 import { RootState } from "@reduxjs/toolkit/query";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { CgWebsite } from "react-icons/cg";
 import { CiCalendarDate } from "react-icons/ci";
 import { FaCode, FaGithub, FaHome, FaLinkedin, FaPhone } from "react-icons/fa";
@@ -8,10 +11,11 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoLanguageSharp } from "react-icons/io5";
 import { MdOutlineMail, MdOutlineWork } from "react-icons/md";
 import { useSelector } from "react-redux";
-import ExperienceList from "../components/experience/ExperienceList";
 import EducationList from "../components/education/EducationList";
+import ExperienceList from "../components/experience/ExperienceList";
 
 const ProfilePage = () => {
+  const [open, setOpen] = useState(false);
   const jobSeeker = useSelector(
     (state: RootState) => state.jobSeeker.jobSeeker
   );
@@ -39,16 +43,25 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="m-20 flex gap-2">
+    <div className="m-20 w-fit mx-auto flex gap-2 bg-gradient-to-r from-slate-700 to-sky-500 rounded-xl">
       {/* Left Part */}
       <div className="relative flex flex-col ">
-        <div className="border rounded-xl shadow-xl p-8 w-96 flex flex-col gap-3">
+        <div className="border border-t-0 border-slate-400 rounded-tl-xl rounded-br-xl shadow-xl p-8 w-96 flex flex-col gap-3">
           <div className="flex items-center gap-8">
             <img
               className="w-28 h-28 object-fit   rounded-full "
               src="/src/assets/ronaldo.jpg"
               alt="Photo"
             />
+
+            <div className="absolute right-0  top-0 m-4 flex items-center gap-2">
+              <button
+                className="text-xl bg-teal-500 w-fit px-1 text-transparent bg-clip-text rounded-lg"
+                onClick={() => setOpen(true)}
+              >
+                Edit
+              </button>
+            </div>
 
             <span className="text-2xl">
               {jobSeeker?.firstName} {jobSeeker?.lastName}{" "}
@@ -122,10 +135,12 @@ const ProfilePage = () => {
         <ExperienceList />
       </div>
 
-      <div className="flex flex-col ">
-        <div className="border h-fit rounded-xl shadow-xl p-8 flex flex-col gap-3  ">
+      <div className="flex flex-col">
+        <div className="border border-t-0 border-slate-400   h-fit rounded-tr-xl rounded-bl-xl shadow-xl p-8 flex flex-col gap-3  ">
           <div className="flex justify-between text-xl">
-            <span className="font-bold text-xl">General Information</span>
+            <RotatedText>
+              <span className="font-bold text-xl ">General Information</span>
+            </RotatedText>
           </div>
           <div className="flex flex-col">
             <span className="font-bold">About Me</span>
@@ -211,6 +226,14 @@ const ProfilePage = () => {
           </div>
         </div>
         <EducationList />
+        {open && (
+        <ProfileForm
+          open={open}
+          handleClose={() => {
+            setOpen(false);
+          }}
+        />
+      )}
       </div>
     </div>
   );

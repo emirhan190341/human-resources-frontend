@@ -1,4 +1,3 @@
-
 type ExperienceProps = {
   position: string;
   company: string;
@@ -20,7 +19,7 @@ const ExperienceCard = (props: ExperienceProps) => {
       <p className="text-gray-500">
         {props.city},{props.country}
       </p>
-      <p >{props.description}</p>
+      <p>{props.description}</p>
       <hr className="flex-grow my-2 border-gray-300" />
     </div>
   );

@@ -1,17 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
-import OAuthButtonGroup from "../components/OAuthButtonGroup";
+import TransitionText from "@/components/decorators/TransitionText";
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import OAuthButtonGroup from "../components/OAuthButtonGroup";
 import { createJobSeeker } from "../redux/JobSeekerSlice";
-import TransitionText from "@/components/decorators/TransitionText";
 
 const LoginPage = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -58,7 +57,10 @@ const LoginPage = () => {
           </span>
         </h2>
         <p className="fg.muted text-center mt-2">
-          Don't have an account? <TransitionText>Sign up</TransitionText>
+          Don't have an account?{" "}
+          <TransitionText>
+            <Link to="/signup">Sign up</Link>
+          </TransitionText>
         </p>
       </div>
 

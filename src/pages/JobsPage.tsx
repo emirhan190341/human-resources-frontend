@@ -2,6 +2,7 @@ import JobCard from "../components/job/JobCard";
 
 const JobsPage = () => {
   return (
+    // TODO: Add recently added jobs with redis
     <div className="flex flex-col justify-center items-center">
       <p className="text-2xl font-semibold pt-5">Open Positions</p>
 
