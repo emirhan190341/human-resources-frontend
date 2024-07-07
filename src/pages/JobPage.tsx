@@ -1,21 +1,16 @@
 import UnderlinedText from "@/components/decorators/UnerlinedText";
 import { Card } from "@/components/ui/card";
+import { RootState } from "@/redux/store";
+import { JobDetailsProps } from "@/types/types";
 import { CardContent, Container } from "@mui/material";
 import { FaLeftLong } from "react-icons/fa6";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-type JobDetailsProps = {
-  code: string;
-  position: string;
-  activationTime: string;
-  workType: string;
-  jobDescription: string;
-  todo: string[];
-  requirements: string[];
-};
+
 
 const jobDetails: JobDetailsProps = {
-  code: "1",
+  code: "270bfa0a-475a-4090-9983-433450d61b78",
   position: "Software Engineer",
   activationTime: "2022-01-01",
   workType: "Full-time",
@@ -33,6 +28,9 @@ const jobDetails: JobDetailsProps = {
 };
 
 const JobPage = () => {
+  const jobSeeker = useSelector(
+    (state: RootState) => state.jobSeeker.jobSeeker
+  );
   return (
     <div>
       <Card>
@@ -112,7 +110,10 @@ const JobPage = () => {
           </ul>
         </div>
 
-        <Link className="bg-red-500" to={`/job/apply-job/${jobDetails.code}`}>
+        <Link
+          className="bg-red-500"
+          to={`/job/${jobDetails.code}/apply-job/${jobSeeker.id}`}
+        >
           <button className="absolute left-1/2 text-white bg-job hover:bg-sky-600 py-2 mt-2 transform -translate-x-1/2 -translate-y-1/2 px-4 rounded-md">
             Apply
           </button>

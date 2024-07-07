@@ -1,18 +1,10 @@
-type ExperienceProps = {
-  position: string;
-  company: string;
-  startDate: string;
-  endDate: string;
-  country?: string;
-  city?: string;
-  description?: string;
-};
+import { ExperienceProps } from "../../types/types";
 
 const ExperienceCard = (props: ExperienceProps) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-[384px]">
       <p className="font-semibold ">{props.position} </p>
-      <p>Codlean</p>
+      <p>{props.companyName}</p>
       <p className="text-gray-500">
         {props.startDate} - {props.endDate}
       </p>

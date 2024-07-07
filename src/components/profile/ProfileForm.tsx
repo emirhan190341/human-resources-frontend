@@ -1,32 +1,16 @@
-import { RootState } from "@reduxjs/toolkit/query";
+import { RootState } from "@/redux/store";
 import { useMutation } from "@tanstack/react-query";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import InputField from "../InputField";
 import MUIModal from "../MUIModal";
+import { Profile } from "../../types/types";
 
 interface ProfileFormProps {
   handleClose: () => void;
   open: boolean;
 }
-
-type Profile = {
-  address?: string;
-  country?: string;
-  city?: string;
-  mobilPhone?: string;
-  nationalityId?: string;
-  birthYear?: string;
-  profilePicture?: string;
-  position?: string;
-  github?: string;
-  linkedin?: string;
-  biography?: string;
-  website?: string;
-  languages?: string[];
-  skills?: string[];
-};
 
 const ProfileData: Profile = {
   address: "1234 Elm Street",
@@ -78,7 +62,6 @@ const ProfileForm = ({ handleClose, open }: ProfileFormProps) => {
       credentials: "include",
     });
 
-    // Log the response status and body
     const responseBody = await response.json();
 
     if (!response.ok) {

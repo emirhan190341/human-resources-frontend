@@ -8,14 +8,14 @@ const JobsPage = () => {
 
       <div className="mx-auto mt-5 flex flex-col justify-center items-center border rounded-md">
         <JobCard
-          id="1"
+          code="270bfa0a-475a-4090-9983-433450d61b78"
           title="Software Engineer"
           location="Turkey, Remote"
           company="Facebook"
           description="Looking for a software engineer with experience in React, Node.js, and Docker."
         />{" "}
         <JobCard
-          id="2"
+          code="370bfa0a-475a-4090-9983-433450d61b78"
           title="Software Engineer"
           location="Turkey, Remote"
           company="Facebook"

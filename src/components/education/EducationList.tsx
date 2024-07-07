@@ -1,12 +1,11 @@
 import { LuPlus } from "react-icons/lu";
-
-import { RootState } from "@reduxjs/toolkit/query";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import RotatedText from "../decorators/RotatedText";
 import EducationCard from "./EducationCard";
 import EducationForm from "./EducationForm";
+import { RootState } from "@/redux/store";
 
 type Education = {
   id: number;
@@ -25,6 +24,7 @@ const EducationList = () => {
   const jobSeeker = useSelector(
     (state: RootState) => state.jobSeeker.jobSeeker
   );
+
   const { isLoading, error, data } = useQuery({
     queryKey: ["education"],
     queryFn: async () => {

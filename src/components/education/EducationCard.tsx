@@ -1,13 +1,4 @@
-type EducationProps = {
-  schoolName: string;
-  department: string;
-  major: string;
-  startDate: string;
-  endDate: string;
-  country?: string;
-  city?: string;
-  description?: string;
-};
+import { EducationProps } from "../../types/types";
 
 const EducationCard = (props: EducationProps) => {
   return (

@@ -1,38 +1,17 @@
+import { RootState } from "@/redux/store";
 import { useMutation } from "@tanstack/react-query";
 import { FormProvider, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import InputField from "../InputField";
 import MUIModal from "../MUIModal";
+import { Education, StyleProps } from "../../types/types";
 
 interface EducationFormProps {
   handleClose: () => void;
   open: boolean;
   education?: Education;
 }
-
-type Education = {
-  id: number;
-  schoolName: string;
-  department: string;
-  startDate: string;
-  endDate: string;
-  country: string;
-  city: string;
-  description: string;
-};
-
-type StyleProps = {
-  position: string;
-  top: string;
-  left: string;
-  transform: string;
-  width: number;
-  background: string;
-  borderRadius: string;
-  boxShadow: number;
-  p: number;
-};
 
 const style: StyleProps = {
   position: "absolute",

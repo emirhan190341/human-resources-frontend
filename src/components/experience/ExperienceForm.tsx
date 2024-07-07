@@ -4,35 +4,13 @@ import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import InputField from "../InputField";
 import MUIModal from "../MUIModal";
+import { Experience, StyleProps } from "../../types/types";
 
 interface ExperienceFormProps {
   handleClose: () => void;
   open: boolean;
   experience?: Experience;
 }
-
-type Experience = {
-  id: number;
-  position: string;
-  companyName: string;
-  startDate: string;
-  endDate: string;
-  country: string;
-  city: string;
-  description: string;
-};
-
-type StyleProps = {
-  position: string;
-  top: string;
-  left: string;
-  transform: string;
-  width: number;
-  background: string;
-  borderRadius: string;
-  boxShadow: number;
-  p: number;
-};
 
 const style: StyleProps = {
   position: "absolute",
@@ -108,7 +86,7 @@ const ExperienceForm = ({
           className="flex flex-col"
           onSubmit={methods.handleSubmit(onSubmit)}
         >
-          <InputField name="positionName" placeholder="Position Name" />
+          <InputField name="position" placeholder="Position Name" />
           <InputField name="companyName" placeholder="Company Name" />
           <InputField
             name="startDate"

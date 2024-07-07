@@ -11,8 +11,6 @@ import ProfilePage from "./pages/ProfilePage";
 import RegisterPage from "./pages/RegisterPage";
 import JobApplyPage from "./pages/JobApplyPage";
 
-
-
 function App() {
   const jobSeeker = useSelector(
     (state: RootState) => state.jobSeeker.jobSeeker
@@ -47,7 +45,10 @@ function App() {
         />
         <Route path="/jobs" element={<JobsPage />} />
         <Route path="/job/:code" element={<JobPage />} />
-        <Route path="/job/apply-job/:code" element={<JobApplyPage />} />
+        <Route
+          path="/job/:code/apply-job/:jobSeekerId"
+          element={<JobApplyPage />}
+        />
       </Routes>
 
       <Footer />

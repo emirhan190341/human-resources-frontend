@@ -1,12 +1,12 @@
+import { RootState } from "@/redux/store";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { RootState } from "@reduxjs/toolkit/query";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 type JobCardProps = {
-  id: string;
+  code: string;
   title: string;
   location: string;
   company: string;
@@ -14,7 +14,7 @@ type JobCardProps = {
 };
 
 const JobCard = ({
-  id,
+  code,
   title,
   location,
   company,
@@ -43,7 +43,7 @@ const JobCard = ({
           </div>
           {jobSeeker && (
             <Link
-              to={`/job/${id}`}
+              to={`/job/${code}`}
               className="text-sky-200 bg-gradient-to-r from-slate-800 to-sky-700 rounded-2xl m-2 px-2 py-1 hover:bg-red-200 hover:text-slate-100"
               style={{ transition: "background-color 0.3s ease" }}
             >

@@ -3,7 +3,7 @@ import Modal from "@mui/material/Modal";
 import React, { ReactNode } from "react";
 
 type Props = {
-  style?: React.CSSProperties;
+  style?: any;
   open: boolean;
   handleClose: () => void;
   children: ReactNode;

@@ -1,7 +1,6 @@
 import RotatedText from "@/components/decorators/RotatedText";
 import ProfileForm from "@/components/profile/ProfileForm";
 import { Chip, Stack } from "@mui/material";
-import { RootState } from "@reduxjs/toolkit/query";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { CgWebsite } from "react-icons/cg";
@@ -13,6 +12,7 @@ import { MdOutlineMail, MdOutlineWork } from "react-icons/md";
 import { useSelector } from "react-redux";
 import EducationList from "../components/education/EducationList";
 import ExperienceList from "../components/experience/ExperienceList";
+import { RootState } from "@/redux/store";
 
 const ProfilePage = () => {
   const [open, setOpen] = useState(false);
@@ -46,7 +46,7 @@ const ProfilePage = () => {
     <div className="m-20 w-fit mx-auto flex gap-2 bg-gradient-to-r from-slate-700 to-sky-500 rounded-xl">
       {/* Left Part */}
       <div className="relative flex flex-col ">
-        <div className="border border-t-0 border-slate-400 rounded-tl-xl rounded-br-xl shadow-xl p-8 w-96 flex flex-col gap-3">
+        <div className="border border-t-0 border-slate-400 rounded-tl-xl rounded-br-xl shadow-xl p-8 w-fit flex flex-col gap-3">
           <div className="flex items-center gap-8">
             <img
               className="w-28 h-28 object-fit   rounded-full "
@@ -227,13 +227,13 @@ const ProfilePage = () => {
         </div>
         <EducationList />
         {open && (
-        <ProfileForm
-          open={open}
-          handleClose={() => {
-            setOpen(false);
-          }}
-        />
-      )}
+          <ProfileForm
+            open={open}
+            handleClose={() => {
+              setOpen(false);
+            }}
+          />
+        )}
       </div>
     </div>
   );

@@ -1,24 +1,14 @@
 import { CircularProgress } from "@mui/material";
-import { RootState } from "@reduxjs/toolkit/query";
+
+import { RootState } from "@/redux/store";
 import { useQuery } from "@tanstack/react-query";
-import { GoPencil } from "react-icons/go";
+import { useState } from "react";
 import { LuPlus } from "react-icons/lu";
 import { useSelector } from "react-redux";
-import ExperienceCard from "./ExperienceCard";
-import { useState } from "react";
-import ExperienceForm from "./ExperienceForm";
 import RotatedText from "../decorators/RotatedText";
-
-type ExperienceListProps = {
-  id: number;
-  position: string;
-  company: string;
-  startDate: string;
-  endDate: string;
-  country: string;
-  city: string;
-  description: string;
-};
+import ExperienceCard from "./ExperienceCard";
+import ExperienceForm from "./ExperienceForm";
+import { ExperienceListProps } from "@/types/types";
 
 const ExperienceList = () => {
   const [open, setOpen] = useState(false);
@@ -36,6 +26,7 @@ const ExperienceList = () => {
         }
       );
       const data = await res.json();
+      console.log(data)
       return data;
     },
   });
@@ -49,7 +40,7 @@ const ExperienceList = () => {
   }
 
   return (
-    <div className="border border-b-0 border-slate-400 rounded-tr-xl rounded-bl-xl shadow-xl p-4 mt-3">
+    <div className="border  border-b-0 border-slate-400 rounded-tr-xl rounded-bl-xl shadow-xl p-4 mt-3">
       <div className="flex text-xl justify-between items-center">
         <span className="font-bold">
           <RotatedText>Experience</RotatedText>
@@ -74,7 +65,7 @@ const ExperienceList = () => {
         <ExperienceCard
           key={experience.id}
           position={experience.position}
-          company={experience.company}
+          companyName={experience.companyName}
           startDate={experience.startDate}
           endDate={experience.endDate}
           country={experience.country}
